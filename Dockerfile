@@ -77,5 +77,5 @@ CMD ["./dashboards-service"]
 
 # Metadata
 LABEL maintainer="Dovganik Daniil"
-LABEL version="1.2.4"
-LABEL description="Dashboards Service Binary (Python Compiled)"
+LABEL version="1.2.5"
+LABEL description="Dashboards Service Binary (Python Compiled) with CORS support"

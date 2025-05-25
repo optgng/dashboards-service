@@ -5,6 +5,28 @@ prometheus_url = "http://prometheus.localhost:9090"
 service_name = "dashboards-service"
 service_version = "1.0.0"
 
+# CORS настройки для WebUI
+cors_origins = [
+    "http://localhost:3000",
+    "http://localhost:8080", 
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8080",
+    "http://webui.localhost",
+    "http://webui.localhost:3000",
+    "http://webui.localhost:8080"
+]
+
 [development]
 grafana_url = "http://grafana.localhost:3001"
 grafana_api_key = ""
+cors_debug = true
+
+[production]
+grafana_url = "http://grafana.localhost:3001"
+grafana_api_key = ""
+cors_debug = false
+# В продакшене укажите только нужные домены
+cors_origins = [
+    "http://webui.localhost",
+    "http://webui.localhost:3000"
+]
