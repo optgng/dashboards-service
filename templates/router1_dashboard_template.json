@@ -1,0 +1,250 @@
+{
+  "dashboard": {
+    "title": "Router1 Network Monitoring",
+    "description": "Comprehensive monitoring dashboard for Router1 network metrics",
+    "tags": ["router1", "network", "monitoring", "production"],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 1,
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Interface Traffic (In/Out)",
+        "type": "graph",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "rate(ifInOctets{instance=\"router1\",ifDescr!~\".*Loopback.*\"}[5m])*8",
+            "legendFormat": "{{ifDescr}} In (bps)",
+            "refId": "A"
+          },
+          {
+            "expr": "rate(ifOutOctets{instance=\"router1\",ifDescr!~\".*Loopback.*\"}[5m])*8",
+            "legendFormat": "{{ifDescr}} Out (bps)",
+            "refId": "B"
+          }
+        ],
+        "yAxes": [
+          {
+            "unit": "bps",
+            "min": 0
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "CPU Utilization",
+        "type": "singlestat",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "avg(cpu_usage{instance=\"router1\"})",
+            "legendFormat": "CPU %",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [
+          {
+            "value": 80,
+            "colorMode": "critical",
+            "op": "gt"
+          },
+          {
+            "value": 60,
+            "colorMode": "warning",
+            "op": "gt"
+          }
+        ],
+        "valueMaps": [],
+        "format": "percent",
+        "prefix": "",
+        "postfix": ""
+      },
+      {
+        "id": 3,
+        "title": "Memory Utilization",
+        "type": "singlestat",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "memory_usage{instance=\"router1\"}",
+            "legendFormat": "Memory %",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [
+          {
+            "value": 85,
+            "colorMode": "critical",
+            "op": "gt"
+          },
+          {
+            "value": 70,
+            "colorMode": "warning",
+            "op": "gt"
+          }
+        ],
+        "format": "percent"
+      },
+      {
+        "id": 4,
+        "title": "Interface Status",
+        "type": "table",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 4
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "ifOperStatus{instance=\"router1\"}",
+            "legendFormat": "{{ifDescr}}",
+            "refId": "A",
+            "instant": true
+          }
+        ],
+        "columns": [
+          {
+            "text": "Interface",
+            "value": "ifDescr"
+          },
+          {
+            "text": "Status",
+            "value": "Value"
+          }
+        ],
+        "transform": "table"
+      },
+      {
+        "id": 5,
+        "title": "Interface Errors",
+        "type": "graph",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "rate(ifInErrors{instance=\"router1\"}[5m])",
+            "legendFormat": "{{ifDescr}} In Errors/sec",
+            "refId": "A"
+          },
+          {
+            "expr": "rate(ifOutErrors{instance=\"router1\"}[5m])",
+            "legendFormat": "{{ifDescr}} Out Errors/sec",
+            "refId": "B"
+          }
+        ],
+        "yAxes": [
+          {
+            "unit": "short",
+            "min": 0
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Device Uptime",
+        "type": "singlestat",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 12
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "sysUpTime{instance=\"router1\"}/100",
+            "legendFormat": "Uptime",
+            "refId": "A"
+          }
+        ],
+        "format": "s",
+        "valueName": "current"
+      },
+      {
+        "id": 7,
+        "title": "ICMP Ping Response",
+        "type": "graph",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 12
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "targets": [
+          {
+            "expr": "probe_success{instance=\"router1\"}",
+            "legendFormat": "Ping Success",
+            "refId": "A"
+          },
+          {
+            "expr": "probe_duration_seconds{instance=\"router1\"}*1000",
+            "legendFormat": "Response Time (ms)",
+            "refId": "B"
+          }
+        ],
+        "yAxes": [
+          {
+            "unit": "ms",
+            "min": 0
+          }
+        ]
+      }
+    ]
+  },
+  "folderId": 0,
+  "overwrite": true,
+  "message": "Initial router1 monitoring dashboard"
+}

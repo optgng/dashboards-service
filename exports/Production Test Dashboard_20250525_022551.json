@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": true,
+    "canDelete": true,
+    "slug": "production-test-dashboard",
+    "url": "/d/4d7d3b45-079d-4c59-87c7-6797c6eb0554/production-test-dashboard",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-05-24T23:25:51Z",
+    "updated": "2025-05-24T23:25:51Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 1,
+    "hasAcl": false,
+    "isFolder": false,
+    "apiVersion": "v0alpha1",
+    "folderId": 0,
+    "folderUid": "",
+    "folderTitle": "General",
+    "folderUrl": "",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      },
+      "organization": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      }
+    }
+  },
+  "dashboard": {
+    "id": 47,
+    "panels": [],
+    "schemaVersion": 16,
+    "tags": [
+      "production",
+      "test"
+    ],
+    "timezone": "browser",
+    "title": "Production Test Dashboard",
+    "uid": "4d7d3b45-079d-4c59-87c7-6797c6eb0554",
+    "version": 1
+  }
+}

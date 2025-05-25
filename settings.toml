@@ -1,0 +1,10 @@
+[default]
+grafana_url = "http://grafana.localhost:3001"
+grafana_api_key = ""
+prometheus_url = "http://prometheus.localhost:9090"
+service_name = "dashboards-service"
+service_version = "1.0.0"
+
+[development]
+grafana_url = "http://grafana.localhost:3001"
+grafana_api_key = ""

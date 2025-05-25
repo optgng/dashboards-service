@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": true,
+    "canDelete": true,
+    "slug": "final-production-test-dashboard",
+    "url": "/d/cd4b8f3f-6a9b-41ca-97fb-27fe477411e0/final-production-test-dashboard",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-05-25T00:17:06Z",
+    "updated": "2025-05-25T00:17:06Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 1,
+    "hasAcl": false,
+    "isFolder": false,
+    "apiVersion": "v0alpha1",
+    "folderId": 0,
+    "folderUid": "",
+    "folderTitle": "General",
+    "folderUrl": "",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      },
+      "organization": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      }
+    }
+  },
+  "dashboard": {
+    "id": 92,
+    "panels": [],
+    "refresh": "5s",
+    "schemaVersion": 16,
+    "tags": [
+      "final",
+      "production",
+      "test"
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timezone": "browser",
+    "title": "Final Production Test Dashboard",
+    "uid": "cd4b8f3f-6a9b-41ca-97fb-27fe477411e0",
+    "version": 1
+  }
+}

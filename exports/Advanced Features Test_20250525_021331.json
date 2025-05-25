@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": true,
+    "canDelete": true,
+    "slug": "advanced-features-test",
+    "url": "/d/99e693ae-d37e-415e-b651-e2eb4ea59be3/advanced-features-test",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-05-24T23:10:46Z",
+    "updated": "2025-05-24T23:10:46Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 1,
+    "hasAcl": false,
+    "isFolder": false,
+    "apiVersion": "v0alpha1",
+    "folderId": 0,
+    "folderUid": "",
+    "folderTitle": "General",
+    "folderUrl": "",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      },
+      "organization": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      }
+    }
+  },
+  "dashboard": {
+    "id": 43,
+    "panels": [
+      {
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "targets": [
+          {
+            "expr": "memory_usage_percent",
+            "refId": "A"
+          }
+        ],
+        "title": "Memory Usage",
+        "type": "stat"
+      }
+    ],
+    "tags": [
+      "advanced",
+      "test"
+    ],
+    "title": "Advanced Features Test",
+    "uid": "99e693ae-d37e-415e-b651-e2eb4ea59be3",
+    "version": 1
+  }
+}

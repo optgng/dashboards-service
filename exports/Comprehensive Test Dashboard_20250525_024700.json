@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": true,
+    "canDelete": true,
+    "slug": "comprehensive-test-dashboard",
+    "url": "/d/bbed48d3-cb50-4efa-96d8-40e0773a9605/comprehensive-test-dashboard",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-05-24T23:46:59Z",
+    "updated": "2025-05-24T23:46:59Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 1,
+    "hasAcl": false,
+    "isFolder": false,
+    "apiVersion": "v0alpha1",
+    "folderId": 0,
+    "folderUid": "",
+    "folderTitle": "General",
+    "folderUrl": "",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      },
+      "organization": {
+        "canAdd": true,
+        "canEdit": true,
+        "canDelete": true
+      }
+    }
+  },
+  "dashboard": {
+    "id": 51,
+    "panels": [],
+    "refresh": "30s",
+    "schemaVersion": 16,
+    "tags": [
+      "test",
+      "comprehensive"
+    ],
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timezone": "browser",
+    "title": "Comprehensive Test Dashboard",
+    "uid": "bbed48d3-cb50-4efa-96d8-40e0773a9605",
+    "version": 1
+  }
+}

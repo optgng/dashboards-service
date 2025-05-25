@@ -1,0 +1,119 @@
+{
+  "dashboard": {
+    "title": "Router1 Production Monitoring",
+    "description": "Comprehensive network monitoring dashboard for Router1 in production environment",
+    "tags": ["router1", "network", "production", "monitoring", "snmp"],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 1,
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Interface Traffic - GigabitEthernet0/0",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "rate(ifInOctets{instance=\"router1\",ifDescr=\"GigabitEthernet0/0\"}[5m])*8",
+            "legendFormat": "GE0/0 In (bps)"
+          },
+          {
+            "expr": "rate(ifOutOctets{instance=\"router1\",ifDescr=\"GigabitEthernet0/0\"}[5m])*8",
+            "legendFormat": "GE0/0 Out (bps)"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "CPU Utilization %",
+        "type": "singlestat",
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "avg(hrProcessorLoad{instance=\"router1\"})",
+            "legendFormat": "CPU %"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Memory Utilization %",
+        "type": "singlestat",
+        "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "hrStorageUsed{instance=\"router1\",hrStorageDescr=\"RAM\"} / hrStorageSize{instance=\"router1\",hrStorageDescr=\"RAM\"} * 100",
+            "legendFormat": "Memory %"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Interface Status Summary",
+        "type": "table",
+        "gridPos": {"h": 4, "w": 12, "x": 12, "y": 4},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "ifOperStatus{instance=\"router1\"}",
+            "legendFormat": "{{ifDescr}}"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Network Errors Rate",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "rate(ifInErrors{instance=\"router1\"}[5m])",
+            "legendFormat": "{{ifDescr}} In Errors/sec"
+          },
+          {
+            "expr": "rate(ifOutErrors{instance=\"router1\"}[5m])",
+            "legendFormat": "{{ifDescr}} Out Errors/sec"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Device Uptime",
+        "type": "singlestat",
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 8},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "sysUpTime{instance=\"router1\"}/100",
+            "legendFormat": "Uptime (seconds)"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "SNMP Availability",
+        "type": "singlestat",
+        "gridPos": {"h": 4, "w": 6, "x": 18, "y": 8},
+        "datasource": {"type": "prometheus"},
+        "targets": [
+          {
+            "expr": "up{instance=\"router1\",job=\"snmp\"}",
+            "legendFormat": "SNMP Up"
+          }
+        ]
+      }
+    ]
+  },
+  "folderId": 0,
+  "overwrite": true,
+  "message": "Router1 production monitoring dashboard - Final version"
+}
